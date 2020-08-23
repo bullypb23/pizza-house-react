@@ -3,14 +3,14 @@
 
 .Header {
   width: 100%;
-  background: #313131;
-  padding: 0 30px;
+  background: $background;
   height: 50px;
   @include flex(flex-start, center);
 
   .Logo {
     flex: 1 1 20%;
     height: 100%;
+    padding-left: 30px;
 
     a {
       color: #fff;

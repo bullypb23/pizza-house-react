@@ -3,7 +3,7 @@ import classes from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 
-const Header = () => {
+const Header = props => {
   return (
     <header className={classes.Header}>
       <div className={classes.Logo}>
@@ -11,7 +11,7 @@ const Header = () => {
           Logo
         </Link>
       </div>
-      <Navigation />
+      <Navigation isAuthenticated={props.isAuthenticated} />
     </header>
   )
 }

@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import { PRODUCT_URL } from '../shared/apiUrls';
+import { PRODUCT_URL } from '../../shared/apiUrls';
 import axios from 'axios';
 
 export const fetchProducts = () => {

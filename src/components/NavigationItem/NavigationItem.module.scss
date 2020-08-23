@@ -4,12 +4,13 @@
 .NavigationItem {
   height: 100%;
   flex-basis: auto;
+  @include flex(center, center);
 
   a {
     height: 100%;
     padding: 0 10px;
     margin: 0 10px;
-    @include flex(center, center);
+    @include flex(center, flex-start);
     flex-direction: column;
     color:#fff;
     font-size: 1rem;
@@ -19,15 +20,34 @@
       display: block;
       width: 0;
       height: 2px;
-      background: #fff;
+      background: $red;
       bottom: 0;
       transition: all 0.2s ease-in;
     }
-    
-    &:hover {
 
-      &:after {
-        width: 100%;
+    &.Active:after {
+      width: 100%;
+    }
+    
+    &:hover:after {
+      width: 100%;
+    }
+
+    &.Button {
+      background-color: $red;
+      border-radius: 5px;
+      color: #fff;
+
+      &.Active:after {
+        width: 0;
+      }
+
+      &:hover {
+        background-color: darken($red, 5);
+
+        &:after {
+          width: 0;
+        }
       }
     }
   }
