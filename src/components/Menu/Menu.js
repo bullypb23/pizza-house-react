@@ -17,7 +17,7 @@ const Menu = props => {
   }
 
   return (
-    <div className={classes.Menu}>
+    <div id='#menu' className={classes.Menu}>
       <div className={classes.Heading}>
         <h3>Menu</h3>
       </div>

@@ -9,3 +9,5 @@ export const LOGIN_FAILED = 'LOGIN_FAILED';
 
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAILED = 'LOGOUT_FAILED';
+
+export const ADD_TO_BASKET = 'ADD_TO_BASKET';

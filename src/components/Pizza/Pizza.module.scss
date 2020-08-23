@@ -1,0 +1,79 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.PizzaItem {
+  flex-basis: 25%;
+  /* max-width: 25%; */
+  text-align: center;
+  padding: 30px 20px; 
+
+  .ImageContainer {
+    height: 200px;
+    position: relative;
+    @include flex(center, center);
+
+    .PizzaImage {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .Description {
+      width: 80%;
+      background-color: rgba(0, 0, 0, 0.5);
+      height: auto;
+      position: absolute;
+      bottom: 0;
+      color: #fff;
+
+      > p:first-child {
+        font-size: 1.25rem;
+        padding: 5px;
+      }
+
+      > p:last-child {
+        font-size: 0.8rem;
+        padding: 0 5px 5px;
+      }
+    }
+  }
+
+  .Heading h3 {
+    padding: 5px 0 10px;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .SizeButtonsContainer {
+    width: 100%;
+    @include flex(center, center);
+
+    button {
+      flex-basis: 33%;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      background: transparent;
+      border: 1px solid $orange;
+      outline: none;
+      color: #fff;
+      margin: 0 1%;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background: $orange;
+        color: $background;
+      }
+    }
+  }
+
+  .BasketButtonContainer {
+    width: 100%;
+    @include flex(center, flex-start);
+    padding: 10px 0 0; 
+
+    button {
+      @include button(auto, $orange);
+    }
+  }
+}

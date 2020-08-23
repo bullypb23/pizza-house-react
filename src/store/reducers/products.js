@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   products: [],
-  error: null
+  error: null,
+  isProductLoaded: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,7 +11,8 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
-        products: action.data
+        products: action.data,
+        isProductLoaded: true
       }
     case actionTypes.FETCH_PRODUCTS_FAILED:
       return {

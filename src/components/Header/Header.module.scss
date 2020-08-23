@@ -6,6 +6,8 @@
   background: $background;
   height: 50px;
   @include flex(flex-start, center);
+  position: fixed;
+  z-index: 100;
 
   .Logo {
     flex: 1 1 20%;

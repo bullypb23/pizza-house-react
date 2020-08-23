@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './HomePage.module.scss';
 import pizza from '../../assets/images/bg_1.png';
 import Menu from '../Menu/Menu';
-import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -16,11 +15,11 @@ const HomePage = () => {
           <h1>Italian pizza</h1>
           <p>Choose from menu and order best food in Munich!</p>
           <div className={classes.ButtonContainer}>
-            <Link to='#menu'>View Menu</Link>
+            <a href='#menu'>View Menu</a>
           </div>
         </div>
       </div>
-      <div id='#menu'>
+      <div id='menu'>
         <Menu />
       </div>
     </>

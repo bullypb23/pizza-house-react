@@ -1,0 +1,8 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.Pizzas {
+  width: 100%;
+  @include flex(space-around, flex-start);
+  flex-wrap: wrap;
+}
