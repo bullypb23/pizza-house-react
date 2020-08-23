@@ -1,0 +1,13 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.Navigation {
+  flex: 1 1 80%;
+  height: 100%;
+
+  ul {
+    width: 100%;
+    @include flex(flex-end, center);
+    height: 100%;
+  }
+}
