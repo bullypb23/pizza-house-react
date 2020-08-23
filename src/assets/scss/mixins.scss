@@ -3,3 +3,19 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+@mixin button($width, $color) {
+  width: $width;
+  padding: 10px 40px;
+  background-color: $color;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color, 5);
+  }
+}

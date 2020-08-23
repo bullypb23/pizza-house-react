@@ -1,3 +1,67 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
 .HomePage {
   width: 100%;
+  background: url('../../assets/images/background.jpg') no-repeat;
+  background-size: cover;
+  // background-position-y: -100px;
+  padding: 50px 0;
+  // height: 600px;
+  @include flex(center, center);
+  
+  .Banner {
+    flex: 1 1 50%;
+    height: 100%;
+    padding: 0 50px;
+    
+    img {
+      width: 100%;
+      // height: 100%;
+    }
+  }
+  
+  .Heading {
+    flex: 1 1 50%;
+    padding: 0 50px;
+    height: 100%;
+    
+    span {
+      font-family: 'Nothing You Could Do', cursive;
+      color: $orange;
+      font-size: 2.5rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: #fff;
+      font-size: 1.3rem;
+    }
+
+    .ButtonContainer {
+      width: 100%;
+      padding: 20px 0;
+
+      a {
+        width: auto;
+        padding: 10px 40px;
+        background-color: transparent;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        border: 1px solid $orange;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: $orange;
+        }
+      }
+    }
+  }
 }

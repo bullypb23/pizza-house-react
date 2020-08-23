@@ -16,16 +16,29 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <Header isAuthenticated={this.props.isAuthenticated} />
+    let routes = (
+      <Switch>
+        <Route path='/' exact component={HomePage} />
+        <Route path='/register' component={Register} />
+        <Route path='/login' component={Login} />
+        <Redirect to='/' />
+      </Switch>
+    );
+
+    if(this.props.isAuthenticated) {
+      routes = (
         <Switch>
           <Route path='/' exact component={HomePage} />
-          <Route path='/register' component={Register} />
-          <Route path='/login' component={Login} />
           <Route path='/logout' render={() => <Logout />} />
           <Redirect to='/' />
         </Switch>
+      )
+    }
+
+    return (
+      <div className="App">
+        <Header isAuthenticated={this.props.isAuthenticated} />
+        {routes}
       </div>
     );
   }

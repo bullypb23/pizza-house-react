@@ -59,21 +59,9 @@
           @include flex(center, flex-start);
 
           button {
-            width: auto;
-            padding: 10px 40px;
-            background-color: $red;
-            border-radius: 5px;
-            font-size: 1.1rem;
+            @include button(auto, $red);
             text-transform: uppercase;
-            border: none;
-            outline: none;
-            color: #fff;
             margin-top: 10px;
-            cursor: pointer;
-  
-            &:hover {
-              background-color: darken($red, 5);
-            }
   
             &:disabled {
               background-color: #aaa;
