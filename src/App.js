@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import HomePage from './components/HomePage/HomePage';
 import Register from './containers/Register/Register';
 import ShoppingCart from './containers/ShoppingCart/ShoppingCart';
@@ -54,6 +55,7 @@ class App extends Component {
       <div className="App">
         <Header shoppingCartLength={this.props.shoppingCart} isAuthenticated={this.props.isAuthenticated} />
         {routes}
+        <Footer isAuthenticated={this.props.isAuthenticated} />
       </div>
     );
   }

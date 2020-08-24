@@ -17,6 +17,11 @@
     a {
       color: #fff;
       height: 100%;
+      @include flex(center, center);
+
+      img {
+        height: 100%;
+      }
     }
   }
 }

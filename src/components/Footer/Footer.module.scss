@@ -1,0 +1,122 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.Footer {
+  width: 100%;
+  background: darken($background, 10);
+  @include flex(flex-start, flex-start);
+  flex-wrap: wrap;
+  padding: 20px 20px 10px;
+
+  .FooterLogo {
+    flex: 1 1 25%;
+
+    .ImageContainer {
+      width: 100%;
+
+      img {
+        height: 80px;
+      }
+    }
+
+    p {
+      color: $orange;
+      font-style: 1.2rem;
+      padding: 5px 0 5px 10px;
+      @include flex(flex-start, center);
+
+      svg {
+        padding-right: 5px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .Navigation {
+    flex: 1 1 50%;
+
+    > ul {
+      width: 100%;
+      @include flex(flex-start, flex-start);
+      flex-direction: column;
+
+      li {
+        width: 100%;
+        padding: 5px 0;
+        @include flex(flex-start, center);
+
+        a {
+          width: auto;
+          color: #fff;
+          font-size: 1.2rem;
+
+          &:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: $orange;
+            bottom: 0;
+            transition: all 0.2s ease-in;
+          }
+
+          &:hover:after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .SocialMedia {
+    flex: 1 1 25%;
+    @include flex(flex-start, flex-start);
+    flex-wrap: wrap;
+
+    .SocialMediaHeading {
+      flex: 1 1 100%;
+
+      h3 {
+        font-size: 1.5rem;
+        color: #fff;
+        text-align: right;
+      }
+    }
+
+    .SocialMediaIconsContainer {
+      flex: 1 1 100%;
+      @include flex(flex-end, flex-start);
+      padding-top: 20px;
+
+      & > a {
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        margin: 5px;
+        border-radius: 50%;
+        background-color: darken($primary, 5);
+        @include flex(center, center);
+        cursor: pointer;
+        transition: all 0.2s ease-in;
+        
+        &:hover {
+          box-shadow: 0px 0px 5px 5px lighten($primary, 10);
+        }
+      }
+    }
+  }
+
+  .Copyright {
+    flex: 1 1 100%;
+    @include flex(center, flex-start);
+    margin-top: 20px;
+    border-top: 1px solid $orange;
+
+    p {
+      padding-top: 5px;
+      color: #fff;
+      font-style: 0.9rem;
+    }
+  }
+}
