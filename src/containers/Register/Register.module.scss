@@ -3,7 +3,8 @@
 
 .Register {
   width: 100%;
-  background: lighten($background, 10);
+  padding-top: 50px;
+  background: $secondary-background;
   @include flex(center, flex-start);
 
   .RegisterForm {

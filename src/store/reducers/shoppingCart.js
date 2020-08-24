@@ -1,7 +1,11 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  shoppingCart: []
+  shoppingCart: [],
+  deliveryPrice: 2,
+  totalPrice: 0,
+  converter: null,
+  error: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -11,8 +15,39 @@ const reducer = (state = initialState, action) => {
         ...state,
         shoppingCart: [
           ...state.shoppingCart,
-          { name: action.name, size: action.size, price: +action.price, quantity: 1 }
-        ]
+          action.data,
+        ],
+        totalPrice: +state.totalPrice + +action.data.price
+      }
+    case actionTypes.QUANTITY_HANDLER:
+      let updatedShoppingCart = [...state.shoppingCart];
+      let updatedShoppingCartId = updatedShoppingCart[action.id];
+      updatedShoppingCartId.quantity += +action.value;
+      updatedShoppingCart[action.id] = updatedShoppingCartId;
+      let newPrice = +state.totalPrice + +action.value * +updatedShoppingCartId.price;
+      return {
+        ...state,
+        shoppingCart: updatedShoppingCart,
+        totalPrice: +newPrice.toFixed(2)
+      }
+    case actionTypes.REMOVE_ITEM:
+      let updatedBasket = [...state.shoppingCart];
+      let updatedBasketIDs = updatedBasket.filter((item, index) => {
+        return index !== Number(action.id)
+      });
+      return {
+        ...state,
+        shoppingCart: updatedBasketIDs
+      }
+    case actionTypes.FETCH_CURRENCY_EXCHANGE_SUCCESS:
+      return {
+        ...state,
+        converter: action.data
+      }
+    case actionTypes.FETCH_CURRENCY_EXCHANGE_FAILED:
+      return {
+        ...state,
+        error: action.error
       }
     default: return state;
   }

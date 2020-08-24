@@ -11,7 +11,7 @@ const Header = props => {
           Logo
         </Link>
       </div>
-      <Navigation isAuthenticated={props.isAuthenticated} />
+      <Navigation shoppingCartLength={props.shoppingCartLength} isAuthenticated={props.isAuthenticated} />
     </header>
   )
 }

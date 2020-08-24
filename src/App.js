@@ -3,16 +3,18 @@ import './App.scss';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import Register from './containers/Register/Register';
+import ShoppingCart from './containers/ShoppingCart/ShoppingCart';
 import Login from './containers/Login/Login';
 import Logout from './containers/Logout/Logout';
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from './store/actions/products';
+import * as productActions from './store/actions/products';
+import * as shoppingCartActions from './store/actions/shoppingCart';
 
 class App extends Component {
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
     this.props.getProducts();
+    this.props.fetchCurrencyExchange();
   }
 
   render() {
@@ -21,6 +23,7 @@ class App extends Component {
         <Route path='/' exact component={HomePage} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
+        <Route path='/shopping-cart' component={ShoppingCart} />
         <Redirect to='/' />
       </Switch>
     );
@@ -30,6 +33,7 @@ class App extends Component {
         <Switch>
           <Route path='/' exact component={HomePage} />
           <Route path='/logout' render={() => <Logout />} />
+          <Route path='/shopping-cart' component={ShoppingCart} />
           <Redirect to='/' />
         </Switch>
       )
@@ -37,7 +41,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header isAuthenticated={this.props.isAuthenticated} />
+        <Header shoppingCartLength={this.props.shoppingCart} isAuthenticated={this.props.isAuthenticated} />
         {routes}
       </div>
     );
@@ -46,13 +50,15 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.user.isAuthenticated
+    isAuthenticated: state.user.isAuthenticated,
+    shoppingCart: state.shoppingCart.shoppingCart.length,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProducts: () => dispatch(actions.fetchProducts())
+    getProducts: () => dispatch(productActions.fetchProducts()),
+    fetchCurrencyExchange: () => dispatch(shoppingCartActions.fetchCurrencyExchange()),
   }
 }
 

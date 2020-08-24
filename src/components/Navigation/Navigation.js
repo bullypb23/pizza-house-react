@@ -9,7 +9,12 @@ const Navigation = props => {
       <NavigationItem link='/'>Home</NavigationItem>
       <NavigationItem link='/login'>Login</NavigationItem>
       <NavigationItem link='/register'>Register</NavigationItem>
-      <NavigationItem link='/shopping-cart'><MdShoppingCart /></NavigationItem>
+      <NavigationItem link='/shopping-cart'>
+        <div>
+          <MdShoppingCart />
+          <span>{props.shoppingCartLength > 0 ? '(' + props.shoppingCartLength + ')' : null}</span>
+        </div>
+      </NavigationItem>
     </ul>
   );
 
@@ -17,7 +22,12 @@ const Navigation = props => {
     routes = (
       <ul>
         <NavigationItem link='/'>Home</NavigationItem>
-        <NavigationItem link='/shopping-cart'><MdShoppingCart /></NavigationItem>
+        <NavigationItem link='/shopping-cart'>
+          <div>
+            <MdShoppingCart />
+            <span>{props.shoppingCartLength > 0 ? '(' + props.shoppingCartLength + ')' : null}</span>
+          </div>
+        </NavigationItem>
         <NavigationItem button link='/logout'>Logout</NavigationItem>
       </ul>
     );

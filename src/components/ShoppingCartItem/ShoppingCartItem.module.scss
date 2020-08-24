@@ -1,0 +1,99 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.ShoppingCartItem {
+  width: 100%;
+  @include flex(flex-start, flex-start);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 5px 0;
+  animation: fade-in 0.3s ease-in;
+
+  .ProductImage {
+    flex: 1 1 25%;
+    height: 100%;
+    @include flex(center, center);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .ProductDetails {
+    flex: 1 1 45%;
+    padding: 20px 20px 0;
+
+    h4 {
+      color: $orange;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #fff;
+      padding-top: 10px;
+    }
+  }
+
+  .ProductQuantity {
+    flex: 1 1 20%;
+    @include flex(center, flex-start);
+    padding-top: 20px;
+
+    button {
+      flex: 1 1 33%;
+      background: transparent;
+      font-size: 1.2rem;
+      border: 1px solid $orange;
+      padding: 10px;
+      color: #fff;
+      cursor: pointer;
+      outline: none;
+
+      &:first-child {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+
+        &:hover {
+          transition: all 0.3s ease-in;
+          background: $orange;
+          color: $background;
+        }
+      }
+
+      &:last-child {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        &:hover {
+          transition: all 0.3s ease-in;
+          background: $orange;
+          color: $background;
+        }
+      }
+    }
+  }
+
+  .ProductRemove {
+    flex: 1 1 10%;
+    @include flex(flex-end, flex-start);
+    padding: 10px 5px 0;
+
+    svg {
+      border: 1px solid $orange;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
