@@ -4,6 +4,8 @@ import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import Register from './containers/Register/Register';
 import ShoppingCart from './containers/ShoppingCart/ShoppingCart';
+import Checkout from './containers/Checkout/Checkout';
+import OrderRecieved from './containers/OrderRecieved/OrderRecieved';
 import Login from './containers/Login/Login';
 import Logout from './containers/Logout/Logout';
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -24,6 +26,8 @@ class App extends Component {
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
         <Route path='/shopping-cart' component={ShoppingCart} />
+        <Route path='/checkout' component={Checkout} />
+        <Route path='/order-recieved' component={OrderRecieved} />
         <Redirect to='/' />
       </Switch>
     );
@@ -34,6 +38,8 @@ class App extends Component {
           <Route path='/' exact component={HomePage} />
           <Route path='/logout' render={() => <Logout />} />
           <Route path='/shopping-cart' component={ShoppingCart} />
+          <Route path='/checkout' component={Checkout} />
+          <Route path='/order-recieved' component={OrderRecieved} />
           <Redirect to='/' />
         </Switch>
       )

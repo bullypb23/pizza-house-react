@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
+import { ORDER_URL } from '../../shared/apiUrls';
 
 export const addToShoppingCart = (name, size, price) => {
   return {
@@ -51,5 +52,38 @@ export const fetchCurrencyExchangeFailed = error => {
   return {
     type: actionTypes.FETCH_CURRENCY_EXCHANGE_SUCCESS,
     error
+  }
+}
+
+export const submitOrder = values => {
+  return dispatch => {
+    axios.post(ORDER_URL, values)
+      .then(response => {
+        dispatch(submitOrderSuccess(response.data.message));
+        dispatch(resetShoppingCart());
+      })
+      .catch(error => {
+        dispatch(submitOrderFailed(error.response));
+      })
+  }
+}
+
+export const submitOrderSuccess = message => {
+  return {
+    type: actionTypes.SUBMIT_ORDER_SUCCESS,
+    message
+  }
+}
+
+export const submitOrderFailed = error => {
+  return {
+    type: actionTypes.SUBMIT_ORDER_FAILED,
+    error
+  }
+}
+
+export const resetShoppingCart = () => {
+  return {
+    type: actionTypes.RESET_SHOPPING_CART,
   }
 }

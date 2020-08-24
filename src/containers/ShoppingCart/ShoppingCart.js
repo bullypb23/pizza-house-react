@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ShoppingCartItem from '../../components/ShoppingCartItem/ShoppingCartItem';
 import * as actions from '../../store/actions/shoppingCart';
 import { MdShoppingCart } from 'react-icons/md';
+import CheckoutSummary from '../../components/CheckoutSummary/CheckoutSummary';
 
 class ShoppingCart extends Component {
   render() {
@@ -36,22 +37,14 @@ class ShoppingCart extends Component {
             {items}
           </div>
           {this.props.shoppingCart.length !== 0 ? (
-            <div className={classes.Checkout}>
-              <div className={classes.OrderButton}>
-                <Link to='/checkout'>Checkout</Link>
-              </div>
-              <div className={classes.OrderSummary}>
-                <div className={classes.OrderSummaryHeading}>
-                  <h5>Order Summary</h5>
-                </div>
-                <div className={classes.OrderSummaryPrice}>
-                  <p>Total: {this.props.totalPrice} €</p>
-                  <p>Delivery price: {this.props.deliveryPrice} €</p>
-                  <p>Order total: {this.props.totalPriceWithDelivery} €</p>
-                  <p>Price in dollars: {(this.props.totalPriceWithDelivery * this.props.converter).toFixed(2)} $</p>
-                </div>
-              </div>
-            </div>
+            <CheckoutSummary
+              totalPrice={this.props.totalPrice}
+              deliveryPrice={this.props.deliveryPrice}
+              totalPriceWithDelivery={this.props.totalPriceWithDelivery}
+              converter={this.props.converter}
+              link='/checkout'
+              text='Checkout'
+            />
           ) : null}
         </div>
       </div>

@@ -32,7 +32,6 @@ class Register extends Component {
   })
 
   onSubmit = (values) => {
-    console.log(values);
     this.props.handleRegistration(values);
   }
 

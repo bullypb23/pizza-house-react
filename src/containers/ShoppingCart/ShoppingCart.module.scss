@@ -9,7 +9,6 @@
   background: url('../../assets/images/background.jpg') no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  height: 100vh;
   min-height: 100vh;
 
   .Heading {
@@ -47,52 +46,6 @@
     .ShoppingCartItems {
       flex: 1 1 75%;
       padding-right: 10px;
-    }
-
-    .Checkout {
-      flex: 1 1 25%;
-      border-radius: 5px;
-      background: $secondary-background;
-      padding: 10px;
-      @include flex(flex-start, flex-start);
-      flex-direction: column;
-
-      .OrderButton {
-        width: 100%;
-        @include flex(center, center);
-
-        a {
-          @include button(100%, $orange);
-          text-align: center;
-        }
-      }
-
-      .OrderSummary {
-        width: 100%;
-        @include flex(flex-start, flex-start);
-        flex-direction: column;
-
-        .OrderSummaryHeading {
-          width: 100%;
-          padding: 20px 0 10px;
-
-          h5 {
-            font-size: 1.5rem;
-            color: #fff;
-          }
-        }
-
-        .OrderSummaryPrice {
-          width: 100%;
-          padding: 10px 0;
-
-          p {
-            color: #fff;
-            font-size: 1.2rem;
-            padding: 5px 0;
-          }
-        }
-      }
     }
   }
 }

@@ -5,7 +5,8 @@ const initialState = {
   deliveryPrice: 2,
   totalPrice: 0,
   converter: null,
-  error: null
+  error: null,
+  message: '',
 }
 
 const reducer = (state = initialState, action) => {
@@ -48,6 +49,22 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.error
+      }
+    case actionTypes.SUBMIT_ORDER_SUCCESS:
+      return {
+        ...state,
+        message: action.message
+      }
+    case actionTypes.SUBMIT_ORDER_FAILED:
+      return {
+        ...state,
+        error: action.error
+      }
+    case actionTypes.RESET_SHOPPING_CART:
+      return {
+        ...state,
+        shoppingCart: [],
+        totalPrice: 0,
       }
     default: return state;
   }

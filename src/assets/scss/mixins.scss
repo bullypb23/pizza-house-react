@@ -19,3 +19,17 @@
     background-color: darken($color, 5);
   }
 }
+
+@mixin input {
+  padding: 8px 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+  outline: none;
+
+  &:focus {
+    border-bottom: 1px solid lighten($orange, 10);
+  }
+}
