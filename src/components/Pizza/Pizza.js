@@ -39,7 +39,7 @@ const Pizza = props => {
         {buttons}
       </div>
       <div className={classes.BasketButtonContainer}>
-        <button onClick={() => props.addToShoppingCart(props.name, size, price)}>Add to Cart <MdShoppingCart /></button>
+        <button onClick={() => props.addToShoppingCart(props.id, props.name, size, price)}>Add to Cart <MdShoppingCart /></button>
       </div>
     </div>
   )

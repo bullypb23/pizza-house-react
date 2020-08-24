@@ -2,10 +2,11 @@ import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import { ORDER_URL } from '../../shared/apiUrls';
 
-export const addToShoppingCart = (name, size, price) => {
+export const addToShoppingCart = (id, name, size, price) => {
   return {
     type: actionTypes.ADD_TO_BASKET,
     data: {
+      product_id: id,
       name,
       size,
       price,
@@ -85,5 +86,11 @@ export const submitOrderFailed = error => {
 export const resetShoppingCart = () => {
   return {
     type: actionTypes.RESET_SHOPPING_CART,
+  }
+}
+
+export const removeMessage = () => {
+  return {
+    type: actionTypes.REMOVE_MESSAGE,
   }
 }

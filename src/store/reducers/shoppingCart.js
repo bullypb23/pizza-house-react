@@ -66,6 +66,11 @@ const reducer = (state = initialState, action) => {
         shoppingCart: [],
         totalPrice: 0,
       }
+    case actionTypes.REMOVE_MESSAGE:
+      return {
+        ...state,
+        message: '',
+      }
     default: return state;
   }
 }

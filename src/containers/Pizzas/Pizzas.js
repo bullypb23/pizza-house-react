@@ -5,8 +5,8 @@ import Pizza from '../../components/Pizza/Pizza';
 import * as actions from '../../store/actions/shoppingCart';
 
 class Pizzas extends Component {
-  addToShoppingCart = (name, size, price) => {
-    this.props.addToShoppingCart(name, size, price);
+  addToShoppingCart = (id, name, size, price) => {
+    this.props.addToShoppingCart(id, name, size, price);
   }
 
   render() {
@@ -19,7 +19,8 @@ class Pizzas extends Component {
         })
         .map(key => (
         <Pizza 
-          key={key} 
+          key={key}
+          id={key} 
           name={pizzas[key].name}
           ingredients={pizzas[key].ingredients}
           sizes={pizzas[key].sizes}
@@ -44,7 +45,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addToShoppingCart: (name, size, price) => dispatch(actions.addToShoppingCart(name, size, price))
+    addToShoppingCart: (id, name, size, price) => dispatch(actions.addToShoppingCart(id, name, size, price))
   }
 }
 
