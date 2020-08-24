@@ -1,0 +1,66 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.Orders {
+  width: 100%;
+  padding-top: 50px;
+  @include flex(flex-start, center);
+  flex-direction: column;
+  background: url('../../assets/images/background.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+
+  .Heading {
+    padding: 30px 0 20px;
+    width: 80%;
+
+    h4 {
+      font-size: 2.5rem;
+      color: #fff;
+    }
+  }
+
+  .OrdersContainer {
+    width: 80%;
+    @include flex(flex-start, flex-start);
+    flex-wrap: wrap;
+
+    .Order {
+      flex-basis: 50%;
+      padding: 10px 0;
+      @include flex(flex-start, flex-start);
+      flex-wrap: wrap;
+
+      .OrderInformation {
+        flex: 1 1 100%;
+
+        h5 {
+          color: $orange;
+          font-size: 1.5rem;
+        }
+
+        p {
+          color: #fff;
+          font-size: 1.2rem;
+          padding-bottom: 5px;
+        }
+      }
+
+      .OrderItems {
+        flex: 1 1 100%;
+
+        h5 {
+          color: $orange;
+          font-size: 1.5rem;
+        }
+  
+        p {
+          color: #fff;
+          font-size: 1.2rem;
+          padding-bottom: 5px;
+        }
+      }
+    }
+  }
+}

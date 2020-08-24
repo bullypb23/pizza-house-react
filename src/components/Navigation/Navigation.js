@@ -22,6 +22,7 @@ const Navigation = props => {
     routes = (
       <ul>
         <NavigationItem link='/'>Home</NavigationItem>
+        <NavigationItem link='/orders'>Orders</NavigationItem>
         <NavigationItem link='/shopping-cart'>
           <div>
             <MdShoppingCart />

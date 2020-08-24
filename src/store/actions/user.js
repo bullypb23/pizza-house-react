@@ -60,8 +60,7 @@ export const handleLogout = token => {
       headers: {
         Authorization: 'Bearer ' + token
       }
-    })
-      .then(response => {
+    }).then(response => {
         dispatch(handleLogoutSuccess());
       })
       .catch(error => {

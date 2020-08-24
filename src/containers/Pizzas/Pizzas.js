@@ -12,7 +12,7 @@ class Pizzas extends Component {
   render() {
     let pizzas = this.props.products;
     let items;
-    if(this.props.isProductLoaded) {
+    if(this.props.areProductsLoaded) {
       items = Object.keys(pizzas)
         .filter(pizza => {
           return pizzas[pizza].type === 1
@@ -39,7 +39,7 @@ class Pizzas extends Component {
 const mapStateToProps = state => {
   return {
     products: state.products.products,
-    isProductLoaded: state.products.isProductLoaded,
+    areProductsLoaded: state.products.areProductsLoaded,
   }
 }
 

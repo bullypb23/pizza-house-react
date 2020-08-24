@@ -6,6 +6,7 @@ import Register from './containers/Register/Register';
 import ShoppingCart from './containers/ShoppingCart/ShoppingCart';
 import Checkout from './containers/Checkout/Checkout';
 import OrderRecieved from './containers/OrderRecieved/OrderRecieved';
+import Orders from './containers/Orders/Orders';
 import Login from './containers/Login/Login';
 import Logout from './containers/Logout/Logout';
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -17,6 +18,9 @@ class App extends Component {
   componentDidMount() {
     this.props.getProducts();
     this.props.fetchCurrencyExchange();
+    if(this.props.isAuthenticated) {
+      this.props.fetchPreviousOrders(this.props.token);
+    }
   }
 
   render() {
@@ -40,6 +44,7 @@ class App extends Component {
           <Route path='/shopping-cart' component={ShoppingCart} />
           <Route path='/checkout' component={Checkout} />
           <Route path='/order-recieved' component={OrderRecieved} />
+          <Route path='/orders' component={Orders} />
           <Redirect to='/' />
         </Switch>
       )
@@ -58,6 +63,7 @@ const mapStateToProps = state => {
   return {
     isAuthenticated: state.user.isAuthenticated,
     shoppingCart: state.shoppingCart.shoppingCart.length,
+    token: state.user.token,
   }
 }
 
@@ -65,6 +71,8 @@ const mapDispatchToProps = dispatch => {
   return {
     getProducts: () => dispatch(productActions.fetchProducts()),
     fetchCurrencyExchange: () => dispatch(shoppingCartActions.fetchCurrencyExchange()),
+    fetchPreviousOrders: (token) => dispatch(productActions.fetchPreviousOrders(token)),
+
   }
 }
 

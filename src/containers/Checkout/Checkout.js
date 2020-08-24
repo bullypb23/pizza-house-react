@@ -10,8 +10,8 @@ import * as actions from '../../store/actions/shoppingCart';
 
 class Checkout extends Component {
   initialValues = {
-    name: '',
-    email: '',
+    name: this.props.user.name || '',
+    email: this.props.user.email || '',
     phone: '',
     address: '',
     total_price: this.props.totalPrice,
@@ -116,8 +116,9 @@ const mapStateToProps = state => {
     totalPrice: state.shoppingCart.totalPrice,
     totalPriceWithDelivery: +state.shoppingCart.deliveryPrice + +state.shoppingCart.totalPrice,
     converter: state.shoppingCart.converter,
-    userId: state.user.user.id,
     message: state.shoppingCart.message,
+    userId: state.user.user.id,
+    user: state.user.user
   }
 }
 

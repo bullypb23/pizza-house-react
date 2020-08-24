@@ -3,7 +3,9 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
   products: [],
   error: null,
-  isProductLoaded: false
+  areProductsLoaded: false,
+  previousOrders: [],
+  areOrdersLoaded: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -12,12 +14,23 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.data,
-        isProductLoaded: true
+        areProductsLoaded: true
       }
     case actionTypes.FETCH_PRODUCTS_FAILED:
       return {
         ...state,
         error: action.error
+      }
+    case actionTypes.FETCH_PREVIOUS_ORDERS_SUCCESS:
+      return {
+        ...state,
+        previousOrders: action.data,
+        areOrdersLoaded: true,
+      }
+    case actionTypes.FETCH_PREVIOUS_ORDERS_FAILED:
+      return {
+        ...state,
+        error: action.error,
       }
     default: return state;
   }
