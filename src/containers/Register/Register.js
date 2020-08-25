@@ -32,8 +32,9 @@ class Register extends Component {
       .required("This field is required!")
   })
 
-  onSubmit = (values) => {
+  onSubmit = (values, onSubmitProps) => {
     this.props.handleRegistration(values);
+    onSubmitProps.setSubmitting(false);
   }
 
   render() {
@@ -83,8 +84,7 @@ class Register extends Component {
                         </button>
                       </div>
                     </div>
-                    {/* {error === true ? <div className="error-handler">Something went wrong, please try again!</div> : null}
-                    {message !== '' ? <div className="message">{message}</div> : null} */}
+                    {this.props.error ? <div className={classes.Error}>{this.props.error}</div> : null}
                   </div>
                 </Form>
               )
@@ -109,6 +109,7 @@ class Register extends Component {
 const mapStateToProps = state => {
   return {
     loading: state.user.loading,
+    error: state.user.registerError,
   }
 }
 

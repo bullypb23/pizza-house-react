@@ -137,6 +137,10 @@
 
       .SocialMediaHeading {
         @include flex(center, flex-start);
+
+        h3 {
+          text-align: center;
+        }
       }
 
       .SocialMediaIconsContainer {

@@ -23,8 +23,13 @@
 
   .OrdersContainer {
     width: 80%;
-    @include flex(flex-start, flex-start);
+    @include flex(center, flex-start);
     flex-wrap: wrap;
+
+    .NoOrder {
+      color: #fff;
+      font-size: 1.5rem;
+    }
 
     .Order {
       flex-basis: 48%;

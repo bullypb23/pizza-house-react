@@ -79,6 +79,10 @@
 
       &.Button {
         border: none;
+
+        &:hover {
+          background: transparent;
+        }
       }
     }
   }

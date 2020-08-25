@@ -55,3 +55,9 @@ export const fetchPreviousOrdersFailed = error => {
     error
   }
 }
+
+export const emptyPreviousOrders = () => {
+  return {
+    type: actionTypes.EMPTY_PREVIOUS_ORDERS,
+  }
+}

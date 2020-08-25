@@ -91,6 +91,7 @@ class Checkout extends Component {
                         </button>
                       </div>
                     </div>
+                    {this.props.error ? <div className={classes.Error}>{this.props.error}</div> : null}
                   </div>
                 </Form>
               )}
@@ -126,6 +127,7 @@ const mapStateToProps = state => {
     userId: state.user.user.id,
     user: state.user.user,
     loading: state.shoppingCart.loading,
+    error: state.shoppingCart.error,
   }
 }
 

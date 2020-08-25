@@ -48,6 +48,12 @@
           width: 100%;
           @include flex(flex-start, flex-start);
           flex-wrap: wrap;
+
+          .Error {
+            color: $red;
+            width: 70%;
+            text-align: center;
+          }
     
           .InputControl {
             width: 70%;

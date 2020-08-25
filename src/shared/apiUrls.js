@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://arcane-temple-42025.herokuapp.com';
 
 export const PRODUCT_URL = `${BASE_URL}/api/products`;
 export const REGISTRATION_URL = `${BASE_URL}/api/register`;

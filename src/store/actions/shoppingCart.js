@@ -65,7 +65,7 @@ export const submitOrder = values => {
       dispatch(resetShoppingCart());
     })
     .catch(error => {
-      dispatch(submitOrderFailed(error.response));
+      dispatch(submitOrderFailed(error.response.data.message));
     })
   }
 }

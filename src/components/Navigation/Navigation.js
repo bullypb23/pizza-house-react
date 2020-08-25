@@ -4,6 +4,7 @@ import classes from './Navigation.module.scss';
 import { MdShoppingCart} from 'react-icons/md';
 
 const Navigation = props => {
+
   let navigationClasses = [classes.Navigation];
 
   if(props.open === true) {

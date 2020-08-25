@@ -5,7 +5,7 @@ const initialState = {
   deliveryPrice: 2,
   totalPrice: 0,
   converter: null,
-  error: null,
+  error: '',
   message: '',
   loading: false,
 }
@@ -55,7 +55,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         message: action.message,
-        loading: false
+        loading: false,
+        error: '',
       }
     case actionTypes.SUBMIT_ORDER_FAILED:
       return {

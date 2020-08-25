@@ -96,3 +96,11 @@
     }
   }
 }
+
+@include media-md {
+  .HomePage {
+    .Banner {
+      padding: 10px;
+    }
+  }
+}

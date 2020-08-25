@@ -10,7 +10,7 @@ export const handleRegistration = (values) => {
       dispatch(handleRegistrationSuccess(response.data));
     })
       .catch(error => {
-        dispatch(handleRegistrationSuccess(error.response));
+        dispatch(handleRegistrationFailed(error.response.data.message));
       })
   }
 }
@@ -24,7 +24,7 @@ export const handleRegistrationSuccess = data => {
 
 export const handleRegistrationFailed = error => {
   return {
-    type: actionTypes.REGISTRATION_SUCCESS,
+    type: actionTypes.REGISTRATION_FAILED,
     error
   }
 }
@@ -37,9 +37,9 @@ export const handleLogin = (values) => {
       dispatch(handleLoginSuccess(response.data));
     })
     .catch(error => {
-      dispatch(handleLoginSuccess(error.response));
-      })
-    }
+      dispatch(handleLoginFailed(error.response.data.message));
+    })
+  }
 }
 
 export const handleLoginSuccess = data => {

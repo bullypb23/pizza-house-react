@@ -9,9 +9,9 @@ import * as actions from '../../store/actions/user';
 import Spinner from '../../components/Spinner/Spinner';
 
 class Login extends Component {
-
-  onSubmit = (values) => {
+  onSubmit = (values, onSubmitProps) => {
     this.props.handleLogin(values);
+    onSubmitProps.setSubmitting(false);
   }
 
   initialValues = {
@@ -66,6 +66,7 @@ class Login extends Component {
                         </button>
                       </div>
                     </div>
+                    {this.props.error ? <div className={classes.Error}>{this.props.error}</div> : null}
                   </div>
                 </Form>
               )
@@ -91,6 +92,7 @@ const mapStateToProps = state => {
   return {
     isAuthenticated: state.user.isAuthenticated,
     loading: state.user.loading,
+    error: state.user.loginError,
   }
 }
 

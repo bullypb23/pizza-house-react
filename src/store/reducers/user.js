@@ -4,7 +4,8 @@ const initialState = {
   user: {},
   token: null,
   isAuthenticated: false,
-  error: '',
+  loginError: '',
+  registerError: '',
   loading: false,
 }
 
@@ -17,11 +18,12 @@ const reducer = (state = initialState, action) => {
         token: action.data.token,
         isAuthenticated: true,
         loading: false,
+        registerError: ''
       }
     case actionTypes.REGISTRATION_FAILED:
       return {
         ...state,
-        error: action.error,
+        registerError: action.error,
         isAuthenticated: false,
         loading: false,
       }
@@ -32,11 +34,12 @@ const reducer = (state = initialState, action) => {
         token: action.data.token,
         isAuthenticated: true,
         loading: false,
+        loginError: '',
       }
     case actionTypes.LOGIN_FAILED:
       return {
         ...state,
-        error: action.error,
+        loginError: action.error,
         isAuthenticated: false,
         loading: false,
       }

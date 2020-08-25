@@ -41,7 +41,7 @@ class App extends Component {
       routes = (
         <Switch>
           <Route path='/' exact component={HomePage} />
-          <Route path='/logout' render={() => <Logout />} />
+          <Route path='/logout' component={Logout} />
           <Route path='/shopping-cart' component={ShoppingCart} />
           <Route path='/checkout' component={Checkout} />
           <Route path='/order-recieved' component={OrderRecieved} />

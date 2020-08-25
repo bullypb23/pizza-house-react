@@ -32,6 +32,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: action.error,
       }
+    case actionTypes.EMPTY_PREVIOUS_ORDERS:
+      return {
+        ...state,
+        previousOrders: [],
+        areOrdersLoaded: false,
+
+      }
     default: return state;
   }
 }
