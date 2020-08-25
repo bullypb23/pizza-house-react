@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './HomePage.module.scss';
 import pizza from '../../assets/images/bg_1.png';
 import Menu from '../Menu/Menu';
+import Contact from '../Contact/Contact';
 
 const HomePage = () => {
   return (
@@ -22,6 +23,7 @@ const HomePage = () => {
       <div id='menu'>
         <Menu />
       </div>
+      <Contact />
     </>
   )
 }
