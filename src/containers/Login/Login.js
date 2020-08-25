@@ -6,6 +6,7 @@ import classes from './Login.module.scss';
 import TextError from '../../components/TextError/TextError';
 import * as Yup from 'yup';
 import * as actions from '../../store/actions/user';
+import Spinner from '../../components/Spinner/Spinner';
 
 class Login extends Component {
 
@@ -70,6 +71,11 @@ class Login extends Component {
               )
             }}
           </Formik>
+          {this.props.loading ? (
+            <div className={classes.Loading}>
+              <Spinner />
+            </div>
+          ) : null}
         </div>
       )
     }
@@ -83,7 +89,8 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.user.isAuthenticated
+    isAuthenticated: state.user.isAuthenticated,
+    loading: state.user.loading,
   }
 }
 

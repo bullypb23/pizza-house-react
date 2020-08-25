@@ -1,7 +1,7 @@
 @import '../../assets/scss/variables.scss';
 @import '../../assets/scss/mixins.scss';
 
-.PizzaItem {
+.ProductItem {
   flex-basis: 25%;
   /* max-width: 25%; */
   text-align: center;
@@ -12,7 +12,7 @@
     position: relative;
     @include flex(center, center);
 
-    .PizzaImage {
+    .ProductImage {
       height: 100%;
       overflow: hidden;
     }

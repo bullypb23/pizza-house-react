@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import TextError from '../../components/TextError/TextError';
+import Spinner from '../../components/Spinner/Spinner';
 import CheckoutSummary from '../../components/CheckoutSummary/CheckoutSummary';
 import * as Yup from 'yup';
 import * as actions from '../../store/actions/shoppingCart';
@@ -104,6 +105,11 @@ class Checkout extends Component {
             text='Shopping cart'
           />
         </div>
+        {this.props.loading ? (
+            <div className={classes.Loading}>
+              <Spinner />
+            </div>
+          ) : null}
       </div>
     )
   }
@@ -118,7 +124,8 @@ const mapStateToProps = state => {
     converter: state.shoppingCart.converter,
     message: state.shoppingCart.message,
     userId: state.user.user.id,
-    user: state.user.user
+    user: state.user.user,
+    loading: state.shoppingCart.loading,
   }
 }
 

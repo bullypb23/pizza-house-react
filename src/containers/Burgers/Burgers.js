@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
-import classes from './Pizzas.module.scss';
+import classes from './Burgers.module.scss';
 import { connect } from 'react-redux';
-import Pizza from '../../components/Product/Product';
+import Product from '../../components/Product/Product';
 import * as actions from '../../store/actions/shoppingCart';
 
-class Pizzas extends Component {
+class Burgers extends Component {
   addToShoppingCart = (id, name, size, price) => {
     this.props.addToShoppingCart(id, name, size, price);
   }
 
   render() {
-    let pizzas = this.props.products;
+    let burgers = this.props.products;
     let items;
     if(this.props.areProductsLoaded) {
-      items = Object.keys(pizzas)
+      items = Object.keys(burgers)
         .filter(pizza => {
-          return pizzas[pizza].type === 1
+          return burgers[pizza].type === 2
         })
         .map(key => (
-        <Pizza 
+        <Product 
           key={key}
-          id={pizzas[key].id} 
-          name={pizzas[key].name}
-          ingredients={pizzas[key].ingredients}
-          sizes={pizzas[key].sizes}
+          id={burgers[key].id} 
+          name={burgers[key].name}
+          ingredients={burgers[key].ingredients}
+          sizes={burgers[key].sizes}
           addToShoppingCart={this.addToShoppingCart}   
         />
       ))
     }
     return (
-      <div className={classes.Pizzas}>
+      <div className={classes.Burgers}>
         {items}
       </div>
     )
@@ -49,4 +49,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Pizzas);
+export default connect(mapStateToProps, mapDispatchToProps)(Burgers);

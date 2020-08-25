@@ -6,6 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import classes from './Register.module.scss';
 import TextError from '../../components/TextError/TextError';
+import Spinner from '../../components/Spinner/Spinner';
 
 class Register extends Component {
   initialValues = {
@@ -89,6 +90,11 @@ class Register extends Component {
               )
             }}
           </Formik>
+          {this.props.loading ? (
+            <div className={classes.Loading}>
+              <Spinner />
+            </div>
+          ) : null}
         </div>
       )
     }
@@ -102,7 +108,7 @@ class Register extends Component {
 
 const mapStateToProps = state => {
   return {
-    
+    loading: state.user.loading,
   }
 }
 

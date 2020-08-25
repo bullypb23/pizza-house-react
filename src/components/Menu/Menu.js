@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
 import classes from './Menu.module.scss';
 import Pizzas from '../../containers/Pizzas/Pizzas';
+import Burgers from '../../containers/Burgers/Burgers';
 
 const Menu = props => {
   const [showPizzas, setShowPizzas] = useState(true);
-  const [showBurgers, setShowBurgers] = useState(false);
+  // const [showBurgers, setShowBurgers] = useState(false);
 
-  const handleShowPizzas = () => {
-    setShowBurgers(false);
-    setShowPizzas(true);
-  }
-
-  const handleShowBurgers = () => {
-    setShowPizzas(false);
-    setShowBurgers(true);
+  const handleShowMenuItems = () => {
+    setShowPizzas(!showPizzas);
+    
   }
 
   return (
@@ -23,11 +19,11 @@ const Menu = props => {
       </div>
       <div className={classes.MenuContainer}>
         <div className={classes.MenuLinks}>
-          <button onClick={handleShowPizzas}>Pizza</button>
-          <button onClick={handleShowBurgers}>Burger</button>
+          <button onClick={handleShowMenuItems}>Pizza</button>
+          <button onClick={handleShowMenuItems}>Burger</button>
         </div>
         <div className={classes.MenuItems}>
-          {showPizzas ? <Pizzas /> : null}
+          {showPizzas ? <Pizzas /> : <Burgers />}
         </div>
       </div>
     </div>

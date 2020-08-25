@@ -7,6 +7,7 @@ const initialState = {
   converter: null,
   error: null,
   message: '',
+  loading: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -53,12 +54,14 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SUBMIT_ORDER_SUCCESS:
       return {
         ...state,
-        message: action.message
+        message: action.message,
+        loading: false
       }
     case actionTypes.SUBMIT_ORDER_FAILED:
       return {
         ...state,
-        error: action.error
+        error: action.error,
+        loading: false
       }
     case actionTypes.RESET_SHOPPING_CART:
       return {
@@ -70,6 +73,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         message: '',
+      }
+    case actionTypes.START_LOADING_ORDER:
+      return {
+        ...state,
+        loading: true,
       }
     default: return state;
   }

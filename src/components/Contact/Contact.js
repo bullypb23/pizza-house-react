@@ -3,6 +3,7 @@ import classes from './Contact.module.scss';
 import MapComponent from '../MapComponent/MapComponent';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import TextError from '../TextError/TextError';
+import Spinner from '../Spinner/Spinner';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { MESSAGE_URL } from '../../shared/apiUrls';
@@ -31,13 +32,16 @@ const Contact = () => {
   })
 
   const onSubmit = (values, onSubmitProps) => {
+    onSubmitProps.setSubmitting(true);
     axios.post(MESSAGE_URL, values)
-      .then(response => {
-        setMessage(response.data.message);
-        onSubmitProps.resetForm();
-      })
-      .catch(error => {
-        setError(error.response);
+    .then(response => {
+      setMessage(response.data.message);
+      onSubmitProps.resetForm();
+      onSubmitProps.setSubmitting(false);
+    })
+    .catch(error => {
+      setError(error.response);
+      onSubmitProps.setSubmitting(false);
       })
   }
 
@@ -82,11 +86,15 @@ const Contact = () => {
                   type="submit"
                   disabled={!formik.isValid || formik.isSubmitting}
                 >
-                  Login
+                  Send
                 </button>
               </div>
             </div>
-
+            {formik.isSubmitting ? (
+              <div className={classes.Loading}>
+                <Spinner />
+              </div>
+            ) : null}
           </Form>
         )}
         </Formik>

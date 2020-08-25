@@ -6,6 +6,7 @@ import mexicana from '../assets/images/mexicana.png';
 import quattro from '../assets/images/quattro.png';
 import margarita from '../assets/images/margarita.png';
 import funghi from '../assets/images/funghi.png';
+import burger from '../assets/images/burger.png';
 
 export const imageSrc = (name) => {
 
@@ -34,6 +35,15 @@ export const imageSrc = (name) => {
       break;
     case 'Funghi':
       src = funghi;
+      break;
+    case 'Beef burger':
+      src = burger;
+      break;
+    case 'Cheeseburger':
+      src = burger;
+      break;
+    case 'Bacon burger':
+      src = burger;
       break;
     default:
       src = peperoni

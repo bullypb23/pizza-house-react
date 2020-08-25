@@ -58,14 +58,15 @@ export const fetchCurrencyExchangeFailed = error => {
 
 export const submitOrder = values => {
   return dispatch => {
+    dispatch(startLoadingOrder());
     axios.post(ORDER_URL, values)
-      .then(response => {
-        dispatch(submitOrderSuccess(response.data.message));
-        dispatch(resetShoppingCart());
-      })
-      .catch(error => {
-        dispatch(submitOrderFailed(error.response));
-      })
+    .then(response => {
+      dispatch(submitOrderSuccess(response.data.message));
+      dispatch(resetShoppingCart());
+    })
+    .catch(error => {
+      dispatch(submitOrderFailed(error.response));
+    })
   }
 }
 
@@ -92,5 +93,11 @@ export const resetShoppingCart = () => {
 export const removeMessage = () => {
   return {
     type: actionTypes.REMOVE_MESSAGE,
+  }
+}
+
+export const startLoadingOrder = () => {
+  return {
+    type: actionTypes.START_LOADING_ORDER,
   }
 }

@@ -4,10 +4,11 @@ import { LOGIN_URL, REGISTRATION_URL, LOGOUT_URL } from '../../shared/apiUrls';
 
 export const handleRegistration = (values) => {
   return dispatch => {
+    dispatch(startLoadingUser());
     axios.post(REGISTRATION_URL, values)
-      .then(response => {
-        dispatch(handleRegistrationSuccess(response.data));
-      })
+    .then(response => {
+      dispatch(handleRegistrationSuccess(response.data));
+    })
       .catch(error => {
         dispatch(handleRegistrationSuccess(error.response));
       })
@@ -30,14 +31,15 @@ export const handleRegistrationFailed = error => {
 
 export const handleLogin = (values) => {
   return dispatch => {
+    dispatch(startLoadingUser());
     axios.post(LOGIN_URL, values)
-      .then(response => {
-        dispatch(handleLoginSuccess(response.data));
+    .then(response => {
+      dispatch(handleLoginSuccess(response.data));
+    })
+    .catch(error => {
+      dispatch(handleLoginSuccess(error.response));
       })
-      .catch(error => {
-        dispatch(handleLoginSuccess(error.response));
-      })
-  }
+    }
 }
 
 export const handleLoginSuccess = data => {
@@ -56,6 +58,7 @@ export const handleLoginFailed = error => {
 
 export const handleLogout = token => {
   return dispatch => {
+    dispatch(startLoadingUser());
     axios.post(LOGOUT_URL, {}, {
       headers: {
         Authorization: 'Bearer ' + token
@@ -79,5 +82,11 @@ export const handleLogoutFailed = error => {
   return {
     type: actionTypes.LOGOUT_FAILED,
     error
+  }
+}
+
+export const startLoadingUser = () => {
+  return {
+    type: actionTypes.START_LOADING_USER,
   }
 }

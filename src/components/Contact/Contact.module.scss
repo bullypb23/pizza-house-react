@@ -5,6 +5,7 @@
   width: 100%;
   @include flex(flex-start, flex-start);
   background: $secondary-background;
+  position: relative;
 
   .MapContainer {
     flex: 1 1 40%;
@@ -24,6 +25,14 @@
       width: 100%;
       @include flex(flex-start, flex-start);
       flex-wrap: wrap;
+      position: relative;
+
+      .Loading {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        @include flex(center, center);
+      }
       
       .InputControl {
         position: relative;
