@@ -120,3 +120,28 @@
     }
   }
 }
+
+@include media-sm {
+  .Footer {
+    .Navigation {
+      flex: 1 1 100%;
+      padding: 10px 0;
+
+      > ul {
+        flex-direction: row;
+      }
+    }
+
+    .SocialMedia {
+      flex: 1 1 100%;
+
+      .SocialMediaHeading {
+        @include flex(center, flex-start);
+      }
+
+      .SocialMediaIconsContainer {
+        @include flex(center, flex-start);
+      }
+    }
+  }
+}

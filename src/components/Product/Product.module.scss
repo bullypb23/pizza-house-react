@@ -77,3 +77,15 @@
     }
   }
 }
+
+@include media-sm {
+  .ProductItem {
+    flex: 1 1 100%;
+  }
+}
+
+@include media-md {
+  .ProductItem {
+    flex-basis: 50%;
+  }
+}

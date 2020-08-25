@@ -59,3 +59,33 @@
     opacity: 1;
   }
 }
+
+@include media-sm {
+  .ShoppingCart {
+    .Container {
+      width: 100%;
+      @include flex(center, flex-start);
+      flex-wrap: wrap;
+      padding: 10px 30px;
+
+      .ShoppingCartItems {
+        flex: 1 1 100%;
+        margin: 10px 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+@include media-md {
+  .ShoppingCart {
+    .Container {
+      width: 100%;
+      padding: 10px 30px;
+
+      .ShoppingCartItems {
+        flex: 1 1 70%;
+      }
+    }
+  }
+}

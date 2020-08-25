@@ -87,3 +87,28 @@
     }
   }
 }
+
+@include media-sm {
+  .Register {
+    .RegisterForm {
+      flex: 1 1 100%;
+      padding: 30px;
+
+      .Form {
+        padding-top: 10px;
+        
+        .InputControl {
+          width: 100%;
+        }
+      } 
+    } 
+  }
+}
+
+@include media-md {
+  .Register {
+    .RegisterForm {
+      flex-basis: 60%;
+    }
+  }
+}

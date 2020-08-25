@@ -27,10 +27,14 @@
     flex-wrap: wrap;
 
     .Order {
-      flex-basis: 50%;
+      flex-basis: 48%;
       padding: 10px 0;
       @include flex(flex-start, flex-start);
       flex-wrap: wrap;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 5px;
 
       .OrderInformation {
         flex: 1 1 100%;
@@ -61,6 +65,32 @@
           padding-bottom: 5px;
         }
       }
+    }
+  }
+}
+
+@include media-sm {
+  .Orders {
+    .OrdersContainer {
+      width: 100%;
+      padding: 10px 30px;
+
+      .Order {
+        flex: 1 1 100%;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@include media-md {
+  .Orders {
+    .OrdersContainer {
+      width: 100%;
+      padding: 10px 30px;
     }
   }
 }

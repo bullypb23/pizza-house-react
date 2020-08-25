@@ -41,3 +41,15 @@
     }
   }
 }
+
+@include media-sm {
+  .Menu {
+    padding: 20px 10px;
+
+    .MenuContainer {
+      .MenuLinks {
+        @include flex(center, flex-start);
+      }
+    }
+  }
+}

@@ -95,3 +95,40 @@
     opacity: 1;
   }
 }
+
+@include media-sm {
+  .Checkout {
+    .Container {
+      width: 100%;
+      padding: 10px 30px;
+      flex-wrap: wrap;
+
+      .CheckoutForm {
+        flex: 1 1 100%;
+        padding-right: 0;
+
+        form .Form .InputControl {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@include media-md {
+  .Checkout {
+    .Container {
+      width: 100%;
+      padding: 10px 30px;
+
+      .CheckoutForm {
+        flex: 1 1 70%;
+        
+        form .Form .InputControl {
+          width: 100%;
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+}

@@ -47,3 +47,13 @@
     }
   }
 }
+
+@include media-md {
+  .CheckoutSummary {
+    flex: 1 1 30%;
+
+    .OrderSummary .OrderSummaryPrice p {
+      font-size: 1rem;
+    }
+  }
+}

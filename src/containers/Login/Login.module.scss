@@ -76,3 +76,28 @@
     }
   }
 }
+
+@include media-sm {
+  .Login {
+    .LoginForm {
+      flex: 1 1 100%;
+      padding: 30px;
+
+      .Form {
+        padding-top: 10px;
+        
+        .InputControl {
+          width: 100%;
+        }
+      } 
+    } 
+  }
+}
+
+@include media-md {
+  .Login {
+    .LoginForm {
+      flex-basis: 80%;
+    }
+  }
+}

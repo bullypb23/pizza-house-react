@@ -12,3 +12,22 @@
     height: 100%;
   }
 }
+
+@include media-md {
+  .Navigation {
+    flex: 1 1 100%;
+    padding-right: 0;
+    height: 0;
+    visibility: hidden;
+    
+    ul {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &.Open {
+      height: auto;
+      visibility: visible;
+    }
+  }
+}

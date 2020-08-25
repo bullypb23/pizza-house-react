@@ -54,7 +54,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header shoppingCartLength={this.props.shoppingCart} isAuthenticated={this.props.isAuthenticated} />
-        {routes}
+        <main>
+          {routes}
+        </main>
         <Footer isAuthenticated={this.props.isAuthenticated} />
       </div>
     );

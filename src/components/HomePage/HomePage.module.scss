@@ -7,7 +7,7 @@
   background-size: cover;
   padding: 100px 0 50px;
   background-attachment: fixed;
-  @include flex(center, center);
+  @include flex(center, center); 
   
   .Banner {
     flex: 1 1 50%;
@@ -71,5 +71,28 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@include media-sm {
+  .HomePage {
+    flex-direction: column;
+    padding-top: 50px;
+
+    .Heading {
+      padding-top: 20px;
+      @include flex(center, flex-start);
+      flex-direction: column;
+
+      span, h1, p {
+        width: 100%;
+        text-align: center;
+      }
+
+      .ButtonContainer {
+        width: 100%;
+        @include flex(center, flex-start);
+      }
+    }
   }
 }

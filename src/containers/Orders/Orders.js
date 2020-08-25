@@ -11,9 +11,9 @@ class Orders extends Component {
 
   render() {
     let orders = this.props.previousOrders;
-    let orderItems = orders.map(order => {
+    let orderItems = orders.map((order, index) => {
       return (
-        <div className={classes.Order} key={order}>
+        <div className={classes.Order} key={index}>
           <div className={classes.OrderInformation}>
             <h5>Order details</h5>
             <p>Customer name: {order.name}</p>
@@ -23,8 +23,8 @@ class Orders extends Component {
           </div>
           <div className={classes.OrderItems}>
             <h5>Products details</h5>
-            {order.order_items.map(item => (
-              <p key={item}>{item.product.type === 1 ? 'Pizza' : 'Burger'}: {item.product.name} - {item.size.size}</p>
+            {order.order_items.map((item, index) => (
+              <p key={index}>{item.product.type === 1 ? 'Pizza' : 'Burger'}: {item.product.name} - {item.size.size}</p>
             ))}
           </div>
         </div>
