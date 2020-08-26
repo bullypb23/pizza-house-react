@@ -12,6 +12,7 @@
   .OrderButton {
     width: 100%;
     @include flex(center, center);
+    padding: 50px 10px 0;
 
     a {
       @include button(100%, $orange);
@@ -26,7 +27,7 @@
 
     .OrderSummaryHeading {
       width: 100%;
-      padding: 20px 0 10px;
+      padding: 0 0 10px;
 
       h5 {
         font-size: 1.5rem;

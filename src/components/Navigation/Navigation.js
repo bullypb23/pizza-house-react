@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NavigationItem from '../NavigationItem/NavigationItem';
 import classes from './Navigation.module.scss';
 import { MdShoppingCart} from 'react-icons/md';
 
 const Navigation = props => {
+  const [added, setAdded] = useState(false);
+
+  useEffect(() => {
+    setAdded(true);
+    let timer = setTimeout(() => {
+      setAdded(false);
+    }, 1000);
+    
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [props.shoppingCartLength])
 
   let navigationClasses = [classes.Navigation];
 
@@ -17,7 +29,7 @@ const Navigation = props => {
       <NavigationItem link='/login'>Login</NavigationItem>
       <NavigationItem link='/register'>Register</NavigationItem>
       <NavigationItem link='/shopping-cart'>
-        <div>
+        <div className={added ? classes.AddedItem : null}>
           <MdShoppingCart />
           <span>{props.shoppingCartLength > 0 ? '(' + props.shoppingCartLength + ')' : null}</span>
         </div>

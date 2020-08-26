@@ -67,7 +67,7 @@ export const handleLogout = token => {
         dispatch(handleLogoutSuccess());
       })
       .catch(error => {
-        dispatch(handleLogoutFailed(error.response));
+        dispatch(handleLogoutFailed(error.response.data.message));
       })
   }
 }

@@ -23,14 +23,19 @@
     .MenuLinks {
       flex: 1 1 100%;
 
-      button {
+      .MenuLinksButton {
         @include button(auto, transparent);
         border: 1px solid $orange;
         margin: 0 10px;
   
         &:hover {
           background-color: $orange;
-          color: $background;
+          color: #fff;
+        }
+        
+        &.Active {
+          background-color: $orange;
+          color: #fff;
         }
       }
     }

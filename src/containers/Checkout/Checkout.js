@@ -33,8 +33,9 @@ class Checkout extends Component {
       .required('This field is required!'),
   })
 
-  onSubmit = (values) => {
+  onSubmit = (values, onSubmitProps) => {
     this.props.submitOrder(values);
+    onSubmitProps.setSubmitting(false);
   }
 
   render() {

@@ -7,6 +7,8 @@ const Pizza = props => {
   const [size, setSize] = useState(props.sizes[0].size);
   const [price, setPrice] = useState(+props.sizes[0].pivot.price);
 
+  let activeSize = [classes.Button, classes.Active];
+
   let ingredientsList;
   ingredientsList = Object.keys(props.ingredients).map(key => {
     return props.ingredients[key].name;
@@ -21,7 +23,14 @@ const Pizza = props => {
 
   if(Object.keys(props.sizes).length > 1) {
     buttons = Object.keys(props.sizes).map(key => {
-      return <button key={key} onClick={() => {sizeHandler(props.sizes[key].size, props.sizes[key].pivot.price)}}>{props.sizes[key].size} - {props.sizes[key].pivot.price} €</button>
+      return (
+        <button 
+          key={key} 
+          className={props.sizes[key].size === size ? activeSize.join(' ') : classes.Button} 
+          onClick={() => {sizeHandler(props.sizes[key].size, props.sizes[key].pivot.price)}}
+        >
+          {props.sizes[key].size} - {props.sizes[key].pivot.price} €
+        </button>)
     })
 
   }
