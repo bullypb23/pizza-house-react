@@ -1,0 +1,146 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.Container {
+  max-width: 100vw;
+}
+
+.EachSlide {
+  display: flex;
+  width: 100%;
+  @include flex(center, center); 
+
+  .Banner {
+    flex: 1 1 50%;
+    height: 100%;
+    padding: 0 50px;
+    
+    img {
+      width: 100%;
+    }
+  }
+  
+  .Heading {
+    flex: 1 1 50%;
+    padding: 0 50px;
+    height: 100%;
+    
+    h3 {
+      font-family: 'Nothing You Could Do', cursive;
+      color: $orange;
+      font-size: 2.5rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: #fff;
+      font-size: 1.3rem;
+    }
+
+    .ButtonContainer {
+      width: 100%;
+      padding: 20px 0;
+
+      a {
+        width: auto;
+        padding: 10px 40px;
+        background-color: transparent;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        border: 1px solid $orange;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: $orange;
+        }
+      }
+    }
+  }
+
+  .Heading2 {
+    flex: 1 1 50%;
+    padding: 0 50px;
+    height: 100%;
+    
+    h3 {
+      font-family: 'Nothing You Could Do', cursive;
+      color: $orange;
+      font-size: 2.5rem;
+      text-align: right;
+      width: 100%;
+    }
+    
+    h1 {
+      text-align: right;
+      font-size: 4rem;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    
+    p {
+      text-align: right;
+      color: #fff;
+      font-size: 1.3rem;
+    }
+    
+    .ButtonContainer {
+      text-align: right;
+      width: 100%;
+      padding: 20px 0;
+
+      a {
+        width: auto;
+        padding: 10px 40px;
+        background-color: transparent;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        border: 1px solid $orange;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: $orange;
+        }
+      }
+    }
+  }
+}
+
+@include media-sm {
+  .EachSlide {
+    flex-direction: column;
+    padding-top: 50px;
+
+    .Heading, .Heading2 {
+      padding-top: 20px;
+      @include flex(center, flex-start);
+      flex-direction: column;
+
+      h3, h1, p {
+        width: 100%;
+        text-align: center;
+      }
+
+      .ButtonContainer {
+        width: 100%;
+        @include flex(center, flex-start);
+      }
+    }
+  }
+}
+
+@include media-md {
+  .EachSlide {
+    .Banner {
+      padding: 10px;
+    }
+  }
+}

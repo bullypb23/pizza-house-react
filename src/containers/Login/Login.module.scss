@@ -17,15 +17,16 @@
     @include flex(center, flex-start);
     flex-wrap: wrap;
     position: relative;
-
+    
     h3 {
       flex: 1 1 100%;
       color: #fff;
       font-size: 3rem;
       text-align: center;
     }
-
+    
     form {
+      animation: fade-in 0.3s ease-in;
       flex: 1 1 100%;
     }
 
@@ -80,6 +81,15 @@
       height: 100%;
       @include flex(center, center);
     }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
