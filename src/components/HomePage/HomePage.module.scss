@@ -11,8 +11,86 @@
   background-attachment: fixed;
 }
 
+.Informations {
+  width: 100%;
+  background: darken($background, 10);
+  @include flex(center, flex-start);
+  padding: 20px 50px;
+
+  > div {
+    flex: 1 1 33%;
+    @include flex(center, center);
+    
+    svg {
+      color: $orange;
+      padding-right: 5px;
+      font-size: 1.5rem;
+    }
+    
+    span {
+      color: #fff;
+      font-size: 1rem;
+    }
+  }
+}
+
+.RestaurantInfo {
+  width: 100%;
+  background: $secondary-background;
+  @include flex(flex-start, flex-start);
+
+  .ImageContainer {
+    flex: 1 1 50%;
+    
+    img {
+      width: 100%;
+    }
+  }
+
+  .Heading {
+    flex: 1 1 50%;
+    padding: 30px;
+
+    h2 {
+      color: #fff;
+      font-size: 2rem;
+      padding-bottom: 30px;
+
+      span {
+        color: $orange;
+      }
+    }
+
+    p {
+      color: #fff;
+      font-size: 1.2rem;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+@include media-sm {
+  .Informations {
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+      @include flex(flex-start, center);
+      padding: 10px 0;
+    }
+  }
+}
+
 @include media-md {
   .HomePage {
     padding-top: 50px;
+  }
+
+  .RestaurantInfo {
+    flex-direction: column;
+
+    .ImageContainer {
+      height: 300px;
+    }
   }
 }

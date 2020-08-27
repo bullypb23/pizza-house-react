@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Footer.module.scss';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
-import { FaInstagram, FaFacebook, FaAt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaAt } from 'react-icons/fa';
 
 const Footer = props => {
   let routes = (
@@ -31,7 +31,6 @@ const Footer = props => {
           <img src={logo} alt="Logo"/>
         </div>
         <p><FaAt />info@pizzahouse.com</p>
-        <p><FaMapMarkerAlt />Marienplatz 1, Munich</p>
       </div>
       <div className={classes.Navigation}>
         {routes}
