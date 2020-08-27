@@ -24,7 +24,7 @@ Run the application
 ```
 $ npm start
 ```
-## Install
+## Available scripts
 ```
 $ npm start
 $ npm test
