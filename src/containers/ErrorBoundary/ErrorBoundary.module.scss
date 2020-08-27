@@ -1,0 +1,28 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.ErrorBoundary {
+  width: 100%;
+  padding: 50px 0 20px;
+  @include flex(flex-start, center);
+  flex-direction: column;
+  background: url('../../assets/images/background.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+
+  h1 {
+    color: #fff;
+    font-size: 3rem;
+    padding: 10px 0;
+  }
+
+  p {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  a {
+    color: $orange;
+  }
+}

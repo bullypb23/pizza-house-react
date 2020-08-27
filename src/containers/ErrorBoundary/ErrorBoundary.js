@@ -1,38 +1,24 @@
-import React from "react";
-import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from "react";
+import classes from './ErrorBoundary.module.scss';
+import { Link } from 'react-router-dom';
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends Component {
   state = {
     hasError: false,
-    redirect: false,
   };
 
   static getDerivedStateFromError() {
     return { hasError: true };
   }
 
-  componentDidCatch(error, info) {
-    console.error("ErrorBoundary caught an error", error, info);
-  }
-
-  componentDidUpdate() {
-    if (this.state.hasError) {
-      setTimeout(() => {
-        this.setState({ redirect: true });
-      }, 5000);
-    }
-  }
-
   render() {
-    if (this.state.redirect) {
-      return <Redirect to="/" />;
-    }
     if (this.state.hasError) {
       return (
-        <h1>
-          There was an error with this listing. <Link to="/">Click here</Link>{" "}
-          to go back to the home page or wait 5 seconds
-        </h1>
+        <div className={classes.ErrorBoundary}>
+          <h1>Something went wrong!</h1>
+          <p>There was an error with this listing. <Link to="/">Click here</Link>{" "}
+          to go back to the home page.</p>
+        </div>
       );
     }
     return this.props.children;

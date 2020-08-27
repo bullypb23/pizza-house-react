@@ -63,7 +63,7 @@
 
     p {
       color: #fff;
-      font-size: 1.2rem;
+      font-size: 1rem;
       padding-bottom: 10px;
     }
   }
@@ -88,9 +88,5 @@
 
   .RestaurantInfo {
     flex-direction: column;
-
-    .ImageContainer {
-      height: 300px;
-    }
   }
 }

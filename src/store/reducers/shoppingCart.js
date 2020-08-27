@@ -35,11 +35,13 @@ const reducer = (state = initialState, action) => {
     case actionTypes.REMOVE_ITEM:
       let updatedBasket = [...state.shoppingCart];
       let updatedBasketIDs = updatedBasket.filter((item, index) => {
-        return index !== Number(action.id)
+        return index !== Number(action.id);
       });
+      let newTotalPrice = state.totalPrice - +updatedBasket[action.id].price * +updatedBasket[action.id].quantity;
       return {
         ...state,
-        shoppingCart: updatedBasketIDs
+        shoppingCart: updatedBasketIDs,
+        totalPrice: +newTotalPrice.toFixed(2),
       }
     case actionTypes.FETCH_CURRENCY_EXCHANGE_SUCCESS:
       return {

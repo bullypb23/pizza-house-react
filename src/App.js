@@ -10,6 +10,7 @@ import OrderRecieved from './containers/OrderRecieved/OrderRecieved';
 import Orders from './containers/Orders/Orders';
 import Login from './containers/Login/Login';
 import Logout from './containers/Logout/Logout';
+import ErrorBoundary from './containers/ErrorBoundary/ErrorBoundary';
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as productActions from './store/actions/products';
@@ -55,7 +56,9 @@ class App extends Component {
       <div className="App">
         <Header shoppingCartLength={this.props.shoppingCart} isAuthenticated={this.props.isAuthenticated} />
         <main>
-          {routes}
+          <ErrorBoundary>
+            {routes}
+          </ErrorBoundary>
         </main>
         <Footer isAuthenticated={this.props.isAuthenticated} />
       </div>

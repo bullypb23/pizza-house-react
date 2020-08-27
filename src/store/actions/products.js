@@ -9,7 +9,7 @@ export const fetchProducts = () => {
         dispatch(fetchProductsSuccess(response.data));
       })
       .catch(error => {
-        dispatch(fetchProductsFailed(error));
+        dispatch(fetchProductsFailed(error.response.data.message));
       })
   }
 }
@@ -37,7 +37,7 @@ export const fetchPreviousOrders = token => {
     }).then(response => {
       dispatch(fetchPreviousOrdersSuccess(response.data));
     }).catch(error => {
-      dispatch(fetchPreviousOrdersFailed(error.response));
+      dispatch(fetchPreviousOrdersFailed(error.response.data.message));
     })
   }
 }

@@ -9,7 +9,6 @@ import thunk from 'redux-thunk';
 import productsReducer from './store/reducers/products';
 import userReducer from './store/reducers/user';
 import shoppingCartReducer from './store/reducers/shoppingCart';
-import ErrorBoundary from './containers/ErrorBoundary/ErrorBoundary';
 
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose; 
 
@@ -25,9 +24,7 @@ const app = (
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <ErrorBoundary>
-          <App />
-        </ErrorBoundary>
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

@@ -3,7 +3,7 @@
 
 .Orders {
   width: 100%;
-  padding-top: 50px;
+  padding: 50px 0 20px;
   @include flex(flex-start, center);
   flex-direction: column;
   background: url('../../assets/images/background.jpg') no-repeat;

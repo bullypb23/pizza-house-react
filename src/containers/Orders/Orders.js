@@ -28,7 +28,7 @@ class Orders extends Component {
             <div className={classes.OrderItems}>
               <h5>Products details</h5>
               {order.order_items.map((item, index) => (
-                <p key={index}>{item.product.type === 1 ? 'Pizza' : 'Burger'}: {item.product.name} - {item.size.size}</p>
+                <p key={index}>{item.product.type === 1 ? 'Pizza' : 'Burger'}: {item.product.name} {item.size.size} - x{item.quantity}</p>
               ))}
             </div>
           </div>
